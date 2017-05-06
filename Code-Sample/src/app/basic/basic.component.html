@@ -1,0 +1,6 @@
+<button class="btn btn-primary" (click)="toggle()"> Toggle </button>
+<div *ngIf="isTrue; then tmplWhenTrue else tmplWhenFalse">
+  *I show-up when isTrue is true. 
+</div>
+<ng-template #tmplWhenTrue >I show-up when isTrue is true. </ng-template>
+<ng-template #tmplWhenFalse > I show-up when isTrue is false </ng-template>

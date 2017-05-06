@@ -1,0 +1,30 @@
+  <div class="row">
+    <div class="card col-lg-4 col-sm-6 col-xs-12" *ngFor="let dino of dinosaurs; index as dinoIndex;">
+      <img class="card-img-top" src="assets/images/{{dino.name}}.png" [alt]="dino.name">
+      <div class="card-block">        
+        <h4 class="card-title" >{{dinoIndex+1}}. {{dino.name}}</h4>        
+        <div class="card-text">
+          <div class="row">
+            <div class="col-lg-4 col-xs-12 col-sm-6 ">
+              Height: {{dino.height}} mt
+            </div>
+            <div class="col-lg-4  col-xs-12 col-sm-6">
+              Weight: {{dino.weight}} lb
+            </div>
+            <div class="col-lg-4  col-xs-12 col-sm-6">
+              Length: {{dino.length}} ft
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div *ngIf="dino.weight < 100; then bird else large"></div>
+            <ng-template #bird> <strong>Very light</strong></ng-template>
+            <ng-template #large> <div *ngIf="dino.weight<10000; else extraLarge"><strong>Large. Higher than an average person</strong></div></ng-template>
+            <ng-template #extraLarge> <strong>Extremely large</strong></ng-template>
+          </div>          
+        </div>
+      </div>
+    </div>
+
+  </div>

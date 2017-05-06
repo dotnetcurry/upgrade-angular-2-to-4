@@ -1,0 +1,33 @@
+<div>
+  <div>
+    <button class="btn btn-primary" (click)="getNextDino()">Get me next dinosaur</button>
+  </div>
+
+  <div *ngIf="dino | async; else working; let dino">
+    <div class="card col-8">
+      <div class="col-4">
+              <img class="card-img-top" src="assets/images/{{dino.name}}.png" [alt]="dino.name">
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">{{dino.name}}</h4>
+        <div class="card-text">
+          <div class="row">
+            <div class="col-lg-4 col-xs-12">
+              Height: {{dino.height}} mt
+            </div>
+            <div class="col-lg-4 col-xs-12">
+              Weight: {{dino.weight}} pounds
+            </div>
+            <div class="col-lg-4 col-xs-12">
+              Length: {{dino.length}} ft
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card end -->
+  </div>
+  <ng-template #working>
+    <div>Loading... (It takes 4 seconds, by design)</div>
+  </ng-template>
+</div>
